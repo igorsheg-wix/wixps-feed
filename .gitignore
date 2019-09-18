@@ -1,0 +1,5 @@
+tmp/*
+!tmp/.gitkeep
+.env
+.next
+node_modules

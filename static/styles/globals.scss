@@ -1,0 +1,416 @@
+// Reset
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+//
+$D10: #000;
+$D80: #fff;
+$D20: darken($D80, 30%);
+$D30: darken($D80, 40%);
+$D40: darken($D80, 50%);
+$D50: darken($D80, 60%);
+$D60: darken($D80, 70%);
+$D70: darken($D80, 80%);
+
+$T50: 54px;
+$T40: 42px;
+$T05: 14px;
+$T10: 16px;
+$T20: 20px;
+$T30: 24px;
+
+@mixin mainGrid {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding-right: 42px;
+	padding-left: 42px;
+	-webkit-box-pack: center;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+img {
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+}
+
+@mixin easeOutExpo($duration) {
+	transition: all $duration cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@mixin linear($duration) {
+	transition: all $duration cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+
+@mixin easeDarkBackground {
+	background: linear-gradient(
+		to bottom,
+		hsla(0, 0%, 0%, 0) 0%,
+		hsla(0, 0%, 0%, 0.013) 8.1%,
+		hsla(0, 0%, 0%, 0.049) 15.5%,
+		hsla(0, 0%, 0%, 0.104) 22.5%,
+		hsla(0, 0%, 0%, 0.175) 29%,
+		hsla(0, 0%, 0%, 0.259) 35.3%,
+		hsla(0, 0%, 0%, 0.352) 41.2%,
+		hsla(0, 0%, 0%, 0.45) 47.1%,
+		hsla(0, 0%, 0%, 0.55) 52.9%,
+		hsla(0, 0%, 0%, 0.648) 58.8%,
+		hsla(0, 0%, 0%, 0.741) 64.7%,
+		hsla(0, 0%, 0%, 0.825) 71%,
+		hsla(0, 0%, 0%, 0.896) 77.5%,
+		hsla(0, 0%, 0%, 0.951) 84.5%,
+		hsla(0, 0%, 0%, 0.987) 91.9%,
+		hsl(0, 0%, 0%) 100%
+	);
+}
+
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: $D10;
+	color: $D80;
+	overflow: hidden;
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	overflow-x: hidden;
+}
+
+a {
+	color: $D80;
+	text-decoration: none;
+	@include easeOutExpo(420ms);
+
+	&:hover {
+		color: darken($D80, 20%);
+		cursor: pointer;
+	}
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+.project {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.collections {
+	position: relative;
+	& img {
+		position: absolute;
+		width: 100vw;
+		top: 0;
+		left: 0;
+	}
+}
+
+.detailsWrapp {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	z-index: 991;
+	height: 70vh;
+	@include easeDarkBackground();
+}
+.details {
+	position: absolute;
+	display: flex;
+	transform-origin: bottom left;
+	bottom: 0;
+	left: 0;
+	align-items: flex-end;
+	display: flex;
+	justify-content: flex-start;
+	z-index: 9991;
+	padding: 84px;
+
+	& .projectMeta {
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+
+		& h1 {
+			color: $D80;
+			font-size: $T50;
+			font-weight: 700;
+			line-height: $T50 + 6px;
+			margin: 0 0 12px 0;
+		}
+		& p {
+			color: $D80;
+			font-size: $T30;
+			font-weight: 400;
+			line-height: $T30 + 6px;
+		}
+		& h5 {
+			
+			color: $D20;
+			font-size: $T10;
+			text-transform: uppercase;
+			font-weight: 600;
+			line-height: $T10 + 6px;
+			margin: 0 0 3px 0;
+		}
+	}
+	
+		& img {
+			width: 114px;
+		margin: 0 42px 0 0;
+
+			height: 114px;
+			border-radius: 114px;
+	}
+}
+
+.smallDetails {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	z-index: 991;
+	padding: 84px 84px;
+	display: flex;
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+
+	& .projectMeta {
+		text-shadow: 1px 1px 0 rgba($D10, 0.2);
+		font-size: $T10;
+		font-weight: 600;
+		h5 {
+			margin: 0 0 12px 0;
+			font-size: $T20;
+		}
+		h1 {
+			font-weight: 400;
+		}
+	}
+	& .user {
+		display: flex;
+		flex-direction: row;
+		margin: 0 24px 0 0;
+		& img {
+			width: 60px;
+			height: 60px;
+			border-radius: 60px;
+		}
+	}
+}
+
+.tokenForm {
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+
+	& .inners {
+		width: 50vw;
+
+		& .form {
+			display: grid;
+			grid-template-columns: 1fr 200px;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	& h1 {
+		color: $D80;
+		font-size: $T50;
+		font-weight: 600;
+		line-height: $T50 + 6px;
+		margin: 0 0 24px 0;
+	}
+
+	& p {
+		color: $D80;
+		font-size: $T20;
+		font-weight: 400;
+		line-height: $T20 + 6px;
+		margin: 0 0 54px 0;
+	}
+	& a {
+		text-decoration: underline;
+	}
+
+	& input::placeholder {
+		color: $D20;
+	}
+	& input,
+	textarea {
+		height: 54px;
+		display: inline-block;
+		background: none;
+		border: 1px solid rgba($D80, 0.3);
+		border-radius: 5px;
+		outline: none;
+		color: $D80;
+		font-size: 14px;
+		padding: 0 18px;
+		width: 100%;
+		&:hover {
+			border: 1px solid rgba($D80, 0.5);
+		}
+
+		&:focus {
+			border: 1px solid rgba($D80, 1);
+		}
+	}
+
+	& button {
+		height: 54px;
+		border-radius: 5px;
+		background: $D80;
+		color: $D10;
+		font-size: 16px;
+		padding: 0 30px;
+		margin: 0 0 0 36px;
+		border: none;
+		@include easeOutExpo(420ms);
+		&:hover {
+			background: rgba($D80, 0.8);
+			cursor: pointer;
+		}
+	}
+
+	& button:disabled,
+	& button[disabled] {
+		background: rgba($D80, 0.4);
+	}
+}
