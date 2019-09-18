@@ -23,7 +23,7 @@ export const listCollections = async ({ ...args }) => {
 export const listProjects = async ({ ...props }) => {
 	const { projectsLimit, token } = props;
 	return AbstractClient(token)
-		.projects.list()
+		.projects.list({ filter: "active" })
 		.then(res => {
 			return res.slice(0, projectsLimit);
 		});
