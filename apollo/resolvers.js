@@ -1,4 +1,4 @@
-import { listProjects,listProject, listCollections, listPreviews } from "../abstract";
+import { listProjects, listCollections, listPreviews } from "../abstract";
 
 export const resolvers = {
 	Query: {

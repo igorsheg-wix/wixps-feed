@@ -64,6 +64,7 @@ const Index = ctx => {
 
 	useEffect(() => {
 		if (projects) {
+			console.log(projects);
 			const lastProject = projectStep === projects.length - 1;
 			const hasCollections = projects[projectStep].collections.length;
 
