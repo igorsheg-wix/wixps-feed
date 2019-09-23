@@ -61,7 +61,7 @@ const Index = ctx => {
 
 	const [projectStep, setStep] = useState(0);
 	const delay = CONSTANTS.intervals.projects;
-
+	if(projects) console.log(projects);
 	useEffect(() => {
 		if (projects) {
 			console.log(projects);

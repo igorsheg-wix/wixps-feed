@@ -3,11 +3,11 @@ import gql from "graphql-tag";
 export const typeDefs = gql`
 	type Project {
 		id: ID!
-		name: String!
+		name: String
 		createdByUser: User
 		description: String
 		updatedAt: String
-		collections: [Collection!]!
+		collections: [Collection]
 	}
 
 	type User {
@@ -17,16 +17,16 @@ export const typeDefs = gql`
 	}
 
 	type Collection {
-		id: ID!
-		name: String!
+		id: ID
+		name: String
 		layers(previewsLimit: Int): [Layer]
 	}
 
 	type Layer {
-		fileId: ID!
-		pageId: ID!
-		layerId: ID!
-		projectId: ID!
+		fileId: ID
+		pageId: ID
+		layerId: ID
+		projectId: ID
 		previews: Preview
 	}
 
@@ -35,6 +35,6 @@ export const typeDefs = gql`
 	}
 
 	type Query {
-		projects(projectsLimit: Int, token: String): [Project!]!
+		projects(projectsLimit: Int, token: String): [Project]
 	}
 `;

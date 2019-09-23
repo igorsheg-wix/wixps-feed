@@ -4,7 +4,6 @@ import { encode } from "base64-arraybuffer";
 export const listPreviews = async ({ ...props }) => {
 	const { collection, token } = props;
 	const { projectId, fileId, pageId, layerId } = collection;
-
 	const arrayBuffer = await AbstractClient(token).previews.raw(
 		{
 			projectId: projectId,
