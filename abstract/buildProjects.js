@@ -25,7 +25,6 @@ export const listProjects = async ({ ...props }) => {
 	return AbstractClient(token)
 		.projects.list({ filter: "active" })
 		.then(res => {
-			const yay = res.sort((d1,d2) => new Date(d1.updatedAt) - new Date(d2.updatedAt)).reverse().slice(0, projectsLimit);
-			return yay;
+			return res.sort((d1,d2) => new Date(d1.updatedAt) - new Date(d2.updatedAt)).reverse().slice(0, projectsLimit);
 		});
 };

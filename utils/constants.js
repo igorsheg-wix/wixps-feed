@@ -11,7 +11,7 @@ const details = {
 
 const limits = {
 	projects: 5, // No point of going higher since the app will refetch new 20 projects after refetch interval exactly at the end of the old 20
-	collections: 3,
-	previews: 3
+	collections: 2,
+	previews: 2
 };
 export { intervals, limits, details };
