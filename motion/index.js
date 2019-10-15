@@ -43,6 +43,11 @@ const gradientTransition = {
 		y: 15,
 		opacity: 0,
 		transition: { ...easeOutExpo }
+	},
+	setAside: {
+		y: 200,
+		opacity: 1,
+		transition: { ...easeOutExpo }		
 	}
 };
 

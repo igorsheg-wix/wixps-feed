@@ -14,7 +14,7 @@ const Details = ({ ...props }) => {
 			setInnersTransition("enter");
 		}, CONSTANTS.details.enterDelay);
 		setTimeout(() => {
-			setWrappTransition("initial");
+			setWrappTransition("setAside");
 			setInnersTransition("setAside");
 		}, CONSTANTS.details.exitDelay);
 	}, [name]);
